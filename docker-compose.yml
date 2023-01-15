@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+    # front:
+    #   build: docker/web
+    #   ports:
+    #     - "3000:3000"
+    #   volumes:
+    #     - ./front:/var/www/front
+    #   tty: true
+    api:
+      build:
+        context: .
+        dockerfile: ./docker/api/Dockerfile
+      ports:
+        - "8000:8000"
+      volumes:
+        - ./api:/api
+      tty: true
+    db:
+      container_name: db
+      image: postgres:14.2-alpine
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+      ports:
+        - "5432:5432"
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: password
+volumes:
+  pgdata:
