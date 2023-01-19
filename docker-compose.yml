@@ -1,12 +1,17 @@
 version: '3.9'
 services:
-    # front:
-    #   build: docker/web
-    #   ports:
-    #     - "3000:3000"
-    #   volumes:
-    #     - ./front:/var/www/front
-    #   tty: true
+    front:
+      build:
+        context: .
+        dockerfile: ./docker/front/Dockerfile
+      ports:
+        - "3000:3000"
+      environment:
+        - HOST=0.0.0.0
+        - CHOKIDAR_USEPOLLING=true
+      volumes:
+        - ./front:/var/www/front
+      tty: true
     api:
       build:
         context: .
