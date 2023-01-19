@@ -1,6 +1,6 @@
 FROM node:16.13.2-alpine
-RUN mkdir -p /var/www/frontend
-WORKDIR /var/www/frontend
+RUN mkdir -p /var/www/front
+WORKDIR /var/www/front
 
 RUN apk update && \
     apk upgrade && \
