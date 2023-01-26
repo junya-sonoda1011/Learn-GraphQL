@@ -29,7 +29,6 @@
 </template>
 
 <script>
-// import 'vue-apollo';
 import usersQuery from '../apollo/queries/users.gql';
 
 export default {
